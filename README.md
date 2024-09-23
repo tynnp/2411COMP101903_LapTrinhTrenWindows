@@ -14,7 +14,7 @@ Giảng viên: **ThS. Lương Trần Ngọc Khiết**.
 
 ## Lưu trữ
 **My notes**:  
-**Các bài thực hành**:  
+**Các bài thực hành**: Thư mục [Thuc_hanh](/Thuc_hanh/).  
 **Các bài Lab**:  
 **Đồ án - Ứng dụng trò chơi**:  
 **Đồ án - Ứng dụng quản lý**:  
