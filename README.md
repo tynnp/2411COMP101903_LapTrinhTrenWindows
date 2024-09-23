@@ -1,5 +1,5 @@
 ## Thông tin
-Năm học: **2024 - 2025.**  
+Năm học: **2024 - 2025**.  
 Mã lớp học phần: **2411COMP101903**.  
 Tên học phần: **Lập trình trên Windows**.  
 Giảng viên: **ThS. Lương Trần Ngọc Khiết**.  
