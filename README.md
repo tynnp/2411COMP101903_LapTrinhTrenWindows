@@ -11,3 +11,10 @@ Giảng viên: **ThS. Lương Trần Ngọc Khiết**.
 **Phân bố điểm**:
   - Thiết kế ứng dụng trò chơi (tự chọn), chiếm 50% số điểm.
   - Thiết kế ứng dụng quản lý theo cơ sở dữ liệu (tự chọn), chiếm 50% số điểm.
+
+## Lưu trữ
+**My notes**:  
+**Các bài thực hành**:  
+**Các bài Lab**:  
+**Đồ án - Ứng dụng trò chơi**:  
+**Đồ án - Ứng dụng quản lý**:  
