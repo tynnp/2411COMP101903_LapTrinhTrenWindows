@@ -1,7 +1,6 @@
 # Thông tin
 
-Giảng viên: ThS. Lương Trần Ngọc Khiết.
-
+Giảng viên: ThS. Lương Trần Ngọc Khiết.\n
 Năm học: 2024 - 2025.
 
 Hình thức học:
