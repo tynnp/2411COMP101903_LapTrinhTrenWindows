@@ -13,6 +13,7 @@ Giảng viên: **ThS. Lương Trần Ngọc Khiết**.
   - Thiết kế ứng dụng quản lý theo cơ sở dữ liệu (tự chọn), chiếm 50% số điểm.
 
 ## Lưu trữ
+- **Tài liệu**: Thư mục [Tai_lieu](/Tai_lieu/)
 - **My notes**:  
 - **Các bài thực hành**: Thư mục [Thuc_hanh](/Thuc_hanh/).  
 - **Các bài Lab**: Thư mục [Lab](/Lab/)  
