@@ -80,7 +80,7 @@ class Program {
 }
 ```
 
-## 3. Sử dụng `File` để đọc ghi file
+## 3. Sử dụng `File` và `FileInfo` để đọc ghi file
 Lớp `File` cung cấp một số lượng lớn các phương thức tĩnh để thao tác trực tiếp với file, chẳng hạn như tạo, sao chép, di chuyển, xóa file hoặc đọc và ghi dữ liệu từ file.  
 Một số phương thức phổ biến:
 - `File.Create()`: Tạo một file mới.
@@ -116,7 +116,6 @@ class Program {
 }
 ```
 
-## 4. Sử dụng `FileInfo` để đọc ghi file
 Lớp `FileInfo` đại diện cho một file cụ thể trên hệ thống và cung cấp các phương thức không tĩnh để thao tác với file đó.  
 Một số thuộc tính và phương thức phổ biến:
 - `Exists`: Kiểm tra xem file có tồn tại hay không.
