@@ -2,10 +2,51 @@ using System;
 
 public class Program {
     public static void Main(string[] args) {
-        HinhHoc a = new HinhChuNhat(3, 4);
-        HinhHoc b = new HinhTron(5);
-        Console.WriteLine(a);
-        Console.WriteLine(b);
+        List<HinhHoc> list = new List<HinhHoc>();
+        double tongDienTich = 0, tongChuVi = 0;
+        int count = 0;
+        HinhHoc chuNhatMax = new HinhChuNhat();
+        HinhHoc tronMin = new HinhTron(100);
+        
+        try {
+            using (StreamReader sr = new StreamReader("Lab_3_BT1.txt")) {
+                string line;
+                while ((line = sr.ReadLine()) != null) {
+                    string[] str = line.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                    HinhHoc hinh;
+                    // foreach (string s in str)
+                    //     Console.WriteLine(s);
+                    
+                    if (str[0] == "1") {
+                        hinh = new HinhChuNhat(double.Parse(str[1]), double.Parse(str[2]));
+                        if (hinh.DienTich > chuNhatMax.DienTich)
+                            chuNhatMax = hinh;
+                    } 
+                    
+                    else {
+                        hinh = new HinhTron(double.Parse(str[1]));
+                        if (hinh.ChuVi < tronMin.ChuVi)
+                            tronMin = hinh;
+                    }
+
+                    count += 1;
+                    tongDienTich += hinh.DienTich;
+                    tongChuVi += hinh.ChuVi;
+                }
+            }
+        }
+
+        catch (Exception e) {
+            Console.WriteLine($"Error: {e.Message}");
+        }
+
+        using (StreamWriter sw = new StreamWriter("output.txt")) {
+            sw.WriteLine($"So hinh: {count}");
+            sw.WriteLine($"Tong dien tich: {tongDienTich:0.00}");
+            sw.WriteLine($"Tong chu vi: {tongChuVi:0.00}");
+            sw.WriteLine($"Hinh chu nhat co dien tich lon nhat: {chuNhatMax}");
+            sw.WriteLine($"Hinh tron co chu vi nho nhat: {tronMin}");
+        }
     }
 } 
 
@@ -27,7 +68,7 @@ class HinhHoc {
 
     public override string ToString() {
         this.TinhDienTichChuVi();
-        return $"Diện tích: {dienTich}, Chu Vi: {chuVi}";
+        return $"S = {dienTich:0.00}; P = {chuVi:0.00}";
     }
 }
 
@@ -47,11 +88,13 @@ class HinhChuNhat : HinhHoc {
 
     public HinhChuNhat() {
         ChieuDai = ChieuRong = 0;
+        this.TinhDienTichChuVi();
     }
 
     public HinhChuNhat(double chieuDai, double chieuRong) {
         this.ChieuDai = chieuDai;
         this.ChieuRong = chieuRong;
+        this.TinhDienTichChuVi();
     }
 
     public HinhChuNhat(HinhChuNhat other) {
@@ -67,7 +110,7 @@ class HinhChuNhat : HinhHoc {
     }
 
     public override string ToString() {
-        return base.ToString();
+        return $"L = {mChieuDai}, W = {mChieuRong}; " + base.ToString();
     }
 }
 
@@ -81,10 +124,12 @@ class HinhTron : HinhHoc {
 
     public HinhTron() {
         BanKinh = 0;
+        this.TinhDienTichChuVi();
     }
 
     public HinhTron(double banKinh) {
         this.mbanKinh = banKinh;
+        this.TinhDienTichChuVi();
     }
 
     public override void TinhDienTichChuVi() {
@@ -93,6 +138,6 @@ class HinhTron : HinhHoc {
     }
 
     public override string ToString() {
-        return base.ToString();
+        return $"R = {mbanKinh}; " + base.ToString();
     }
 }
