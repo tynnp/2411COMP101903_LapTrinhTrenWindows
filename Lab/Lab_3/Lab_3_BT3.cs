@@ -18,9 +18,16 @@ public class Program {
         DaThuc dt3 = new DaThuc(dt1.congDaThuc(dt2));
         DaThuc dt4 = new DaThuc(dt1.truDaThuc(dt2));
 
+        Console.Write("Đơn thức 1: ");
         dt1.inDaThuc();
+
+        Console.Write("Đơn thức 2: ");
         dt2.inDaThuc();
+
+        Console.Write("Đơn thức 1 + đơn thức 2: ");
         dt3.inDaThuc();
+
+        Console.Write("Đơn thức 1 - đơn thức 2: ");
         dt4.inDaThuc();
     }
 
@@ -81,12 +88,33 @@ public class DonThuc {
     }
 
     public void nhapDonThuc() {
-        Console.Write("Nhập hệ số: ");
         _heSo = double.Parse(Console.ReadLine());
     }
 
-    public void inDonThuc() {
-        Console.Write($"({_heSo}, {_soMu}) ");
+    public void inDonThuc(ref bool dauTien) {
+        if (_heSo == 0) 
+            return;
+
+        if (dauTien) {
+            if (_heSo < 0)
+                Console.Write("-");
+            dauTien = false;
+        } 
+        
+        else {
+            if (_heSo < 0)
+                Console.Write(" - ");
+            else   
+                Console.Write(" + ");
+        }
+
+        double n = Math.Abs(_heSo);
+        if (n != 1) 
+            Console.Write(n);
+        
+        Console.Write('x');
+        if (_soMu > 1) 
+            Console.Write($"^{_soMu}");
     }
 }
 
@@ -153,20 +181,23 @@ public class DaThuc {
     }
 
     public void nhapDaThuc() {
-        Console.Write("Nhập số bậc: ");
+        Console.Write("Nhập số bậc của đa thức: ");
         _soBac = int.Parse(Console.ReadLine());
 
         for (int i = 1; i <= _soBac; i++) {
-            Console.WriteLine($"Nhập đa thức bậc {i}:");
+            Console.Write($"Nhập hệ số đơn thức bậc {i}: ");
             DonThuc donThuc = new DonThuc(i);
             donThuc.nhapDonThuc();
             _listDonThuc.Add(donThuc);
         }
+
+        Console.WriteLine("Nhập thành công!\n");
     }
 
     public void inDaThuc() {
+        bool dauTien = true;
         for (int i = 0; i < _soBac; i++) 
-            _listDonThuc[i].inDonThuc();
+            _listDonThuc[i].inDonThuc(ref dauTien);
         Console.WriteLine();
     }
 }
