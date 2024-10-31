@@ -4,9 +4,15 @@ Mã lớp học phần: **2411COMP101903**.
 Tên học phần: **Lập trình trên Windows**.  
 Giảng viên: **ThS. Lương Trần Ngọc Khiết**.  
 
+**Nhóm đồ án (Chuồn Chuồn Con)**:
+- Nguyễn Ngọc Phú Tỷ - Mã số sinh viên: 49.01.104.172 - Nhóm trưởng.
+- Trần Lê Triều Dương - Mã số sinh viên: 49.01.104.026.
+- Cao Võ Tuấn Kiệt - Mã số sinh viên: 49.01.104.076.
+- Phan Thị Hồng Nhung - Mã số sinh viên: 49.01.104.104.
+
 **Hình thức học**:
   - 30% tự học qua video, 70% trực tiếp tại lớp.
-  - Nhóm đồ án gồm 5 người.
+  - Nhóm đồ án khoảng 5 người.
 
 **Phân bố điểm**:
   - Thiết kế ứng dụng trò chơi (tự chọn), chiếm 50% số điểm.
