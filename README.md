@@ -10,14 +10,6 @@ Giảng viên: **ThS. Lương Trần Ngọc Khiết**.
 - Cao Võ Tuấn Kiệt - Mã số sinh viên: 49.01.104.076.
 - Phan Thị Hồng Nhung - Mã số sinh viên: 49.01.104.104.
 
-**Hình thức học**:
-  - 30% tự học qua video, 70% trực tiếp tại lớp.
-  - Nhóm đồ án khoảng 5 người.
-
-**Phân bố điểm**:
-  - Thiết kế ứng dụng trò chơi (tự chọn), chiếm 50% số điểm.
-  - Thiết kế ứng dụng quản lý theo cơ sở dữ liệu (tự chọn), chiếm 50% số điểm.
-
 ## Lưu trữ
 - **Tài liệu**: Thư mục [Tai_lieu](/Tai_lieu/)
 - **My notes**: Thư mục [Ghi_chu](/Ghi_chu/)  
