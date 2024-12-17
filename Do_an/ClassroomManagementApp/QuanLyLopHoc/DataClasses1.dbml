@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyLopHocDB" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-FVG171V2;Initial Catalog=QuanLyLopHocDB;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="QuanLyLopHoc.Properties.Settings" SettingsPropertyName="QuanLyLopHocDBConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DIEM" Member="DIEMs">
+    <Type Name="DIEM">
+      <Column Name="MaHS" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaMon" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HocKy" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NamHoc" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DiemSo" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="HOCSINH_DIEM" Member="HOCSINH" ThisKey="MaHS" OtherKey="MaHS" Type="HOCSINH" IsForeignKey="true" />
+      <Association Name="MONHOC_DIEM" Member="MONHOC" ThisKey="MaMon" OtherKey="MaMon" Type="MONHOC" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GIAOVIEN" Member="GIAOVIENs">
+    <Type Name="GIAOVIEN">
+      <Column Name="MaGV" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SoDienThoai" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="GIAOVIEN_LOP" Member="LOPs" ThisKey="MaGV" OtherKey="MaGVCN" Type="LOP" />
+      <Association Name="GIAOVIEN_LICHDAY" Member="LICHDAYs" ThisKey="MaGV" OtherKey="MaGV" Type="LICHDAY" />
+      <Association Name="GIAOVIEN_TAIKHOAN" Member="TAIKHOANs" ThisKey="MaGV" OtherKey="MaGV" Type="TAIKHOAN" />
+      <Association Name="GIAOVIEN_PHANCONG" Member="PHANCONGs" ThisKey="MaGV" OtherKey="MaGV" Type="PHANCONG" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOCSINH" Member="HOCSINHs">
+    <Type Name="HOCSINH">
+      <Column Name="MaHS" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="NgaySinh" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="GioiTinh" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DiaChi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MaLop" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="HOCSINH_DIEM" Member="DIEMs" ThisKey="MaHS" OtherKey="MaHS" Type="DIEM" />
+      <Association Name="LOP_HOCSINH" Member="LOP" ThisKey="MaLop" OtherKey="MaLop" Type="LOP" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LOP" Member="LOPs">
+    <Type Name="LOP">
+      <Column Name="MaLop" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenLop" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NamHoc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaGVCN" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="LOP_HOCSINH" Member="HOCSINHs" ThisKey="MaLop" OtherKey="MaLop" Type="HOCSINH" />
+      <Association Name="LOP_LICHDAY" Member="LICHDAYs" ThisKey="MaLop" OtherKey="MaLop" Type="LICHDAY" />
+      <Association Name="LOP_PHANCONG" Member="PHANCONGs" ThisKey="MaLop" OtherKey="MaLop" Type="PHANCONG" />
+      <Association Name="GIAOVIEN_LOP" Member="GIAOVIEN" ThisKey="MaGVCN" OtherKey="MaGV" Type="GIAOVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LICHDAY" Member="LICHDAYs">
+    <Type Name="LICHDAY">
+      <Column Name="MaGV" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaLop" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaMon" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NgayTrongTuan" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TietBatDau" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SoTiet" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NamHoc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HocKy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="GIAOVIEN_LICHDAY" Member="GIAOVIEN" ThisKey="MaGV" OtherKey="MaGV" Type="GIAOVIEN" IsForeignKey="true" />
+      <Association Name="LOP_LICHDAY" Member="LOP" ThisKey="MaLop" OtherKey="MaLop" Type="LOP" IsForeignKey="true" />
+      <Association Name="MONHOC_LICHDAY" Member="MONHOC" ThisKey="MaMon" OtherKey="MaMon" Type="MONHOC" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MONHOC" Member="MONHOCs">
+    <Type Name="MONHOC">
+      <Column Name="MaMon" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenMon" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="MONHOC_DIEM" Member="DIEMs" ThisKey="MaMon" OtherKey="MaMon" Type="DIEM" />
+      <Association Name="MONHOC_LICHDAY" Member="LICHDAYs" ThisKey="MaMon" OtherKey="MaMon" Type="LICHDAY" />
+      <Association Name="MONHOC_PHANCONG" Member="PHANCONGs" ThisKey="MaMon" OtherKey="MaMon" Type="PHANCONG" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TAIKHOAN" Member="TAIKHOANs">
+    <Type Name="TAIKHOAN">
+      <Column Name="IDUser" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="[Level]" Member="Level" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaGV" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="GIAOVIEN_TAIKHOAN" Member="GIAOVIEN" ThisKey="MaGV" OtherKey="MaGV" Type="GIAOVIEN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHANCONG" Member="PHANCONGs">
+    <Type Name="PHANCONG">
+      <Column Name="MaGV" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaMon" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaLop" Type="System.String" DbType="NVarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NamHoc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="GIAOVIEN_PHANCONG" Member="GIAOVIEN" ThisKey="MaGV" OtherKey="MaGV" Type="GIAOVIEN" IsForeignKey="true" />
+      <Association Name="LOP_PHANCONG" Member="LOP" ThisKey="MaLop" OtherKey="MaLop" Type="LOP" IsForeignKey="true" />
+      <Association Name="MONHOC_PHANCONG" Member="MONHOC" ThisKey="MaMon" OtherKey="MaMon" Type="MONHOC" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
