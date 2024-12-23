@@ -16,4 +16,4 @@ Giảng viên: **ThS. Lương Trần Ngọc Khiết**.
 - **Các bài thực hành**: Thư mục [Thuc_hanh](/Thuc_hanh/)  
 - **Các bài Lab**: Thư mục [Lab](/Lab/)  
 - **Đồ án - Ứng dụng trò chơi**: Thư mục [SudokuGameWinform](/Do_an/SudokuGameWinform/)  
-- **Đồ án - Ứng dụng quản lý**:  
+- **Đồ án - Ứng dụng quản lý**: Thư mục [ClassroomManagementApp](/Do_an/ClassroomManagementApp/)
